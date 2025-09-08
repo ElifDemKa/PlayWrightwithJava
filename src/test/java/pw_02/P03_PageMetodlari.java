@@ -1,3 +1,5 @@
+package pw_02;
+
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
@@ -5,7 +7,8 @@ import com.microsoft.playwright.Playwright;
 
 import java.awt.*;
 
-public class P02_FirstTest {
+public class P03_PageMetodlari {
+
     public static void main(String[] args) throws InterruptedException {
         Dimension screenSize=Toolkit.getDefaultToolkit().getScreenSize();
         int width=screenSize.width;
@@ -16,18 +19,35 @@ public class P02_FirstTest {
         //setHeadless(false):browser acarak testi tamamlar
         Page page= browser.newPage();
         page.navigate("https://www.babayigit.net/test");
-        System.out.println(page.title());
         page.setViewportSize(width,height);
+        Thread.sleep(3000);
+        System.out.println(page.title());
+        page.navigate("https://www.testotomasyonu.com");
         Thread.sleep(15000);
+        System.out.println(page.title());
+        page.goBack();
+        page.reload();
+        Thread.sleep(3000);
+        System.out.println(page.title());
+        page.goForward();
+        Thread.sleep(3000);
+        System.out.println(page.title());
+        page.goBack();
+        page.click("//*[@data-id='login']");
+        Thread.sleep(3000);
+        System.out.println(page.title());
 
         page.close();
         browser.close();
         playwright.close();
-        //bu sekilde de acilan pencere kapatılabilir
+
 
 
 
 
 
     }
+
+
+
 }
