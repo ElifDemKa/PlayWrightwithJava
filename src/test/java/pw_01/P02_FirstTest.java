@@ -22,6 +22,7 @@ public class P02_FirstTest {
         page.setViewportSize(width,height);
         Thread.sleep(15000);
 
+            //not:trysiz yaparsak bu 3 ünü kullanmamız gerekir
         page.close();
         browser.close();
         playwright.close();
