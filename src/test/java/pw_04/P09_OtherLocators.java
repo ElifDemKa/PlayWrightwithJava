@@ -12,10 +12,11 @@ public class P09_OtherLocators {
         Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
         Page page = browser.newPage();
 
-        Dimension scr=Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension scr=Toolkit.getDefaultToolkit().getScreenSize(); //sayfayi tam sayfa yapıyoruz
         int width= scr.width;
         int height=scr.height;
         page.setViewportSize(width,height);
+
         page.navigate("https://getir.com");
         System.out.println(page.title()+"\n");
         page.waitForLoadState(LoadState.LOAD);
