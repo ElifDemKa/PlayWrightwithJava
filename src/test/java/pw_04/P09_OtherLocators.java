@@ -21,9 +21,9 @@ public class P09_OtherLocators {
         System.out.println(page.title()+"\n");
         page.waitForLoadState(LoadState.LOAD);
 
-        //CSS : matching by text
-        //1-has-text
-        Locator loginText=page.locator("h5:has-text('Giriş yap veya kayıt ol')");
+        //CSS locatorlar içinde gecer: matching by text
+        //1-has-text için
+        Locator loginText=page.locator("h5:has-text('Giriş yap veya kayıt ol')"); //'h5' tagımızı yazmamız ve hastext yazmamız gerekir
         System.out.println("1.Text Yöntemi: "+loginText.innerText());
 
         //2-text
@@ -33,9 +33,9 @@ public class P09_OtherLocators {
         Locator loginButton= page.locator("button:has-text('Telefon numarası ile devam et'),button:has-text('login button')");
         System.out.println(loginButton.innerText());
 
-        //Locator LoginBox =page.locator(":nth-match(:text('Giriş Yap'),1");
+        //Locator LoginBox =page.locator(":nth-match(:text('Giriş Yap'),1"); //giris yap butonun birincisi
         Locator LoginBox =page.locator("(//button[@type='button'])[5]");
-        Locator LoginBox2 =page.locator("(//button[@type='button'])").nth(4);
+        Locator LoginBox2 =page.locator("(//button[@type='button'])").nth(4); //nth si 5 ise 4. index element aldık
         System.out.println(LoginBox.innerText());
         System.out.println(LoginBox2.innerText());
 
