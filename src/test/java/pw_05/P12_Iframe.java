@@ -28,7 +28,8 @@ public class P12_Iframe {
         iframe.locator("body").fill("Ne yaparsan yap AŞK ile yap");
         Thread.sleep(2000);
 
-        System.out.println(page.locator("h1").innerText()); //ıframe içindeki baslık
+        System.out.println(page.locator("h1").innerText()); //ıframe içindeki baslık yazdır
+
 
         page.close();browser.close();playwright.close();
 
