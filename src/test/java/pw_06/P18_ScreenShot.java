@@ -41,6 +41,5 @@ public class P18_ScreenShot extends BaseTest {
 
 
 
-
     }
 }
