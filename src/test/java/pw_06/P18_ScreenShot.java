@@ -1,5 +1,7 @@
 package pw_06;
 
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import org.junit.jupiter.api.Test;
@@ -18,6 +20,7 @@ public class P18_ScreenShot extends BaseTest {
         String dosyaYolu= "src/test/java/utilities/1.png" ;
         String dosyaYolu2= "src/test/java/utilities/2.png" ;
         String dosyaYolu3= "src/test/java/utilities/3.png" ;
+        String dosyaYolu4 = "src/test/java/utilities/3.png" ;
 
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(dosyaYolu)).setFullPage(true)); // sayfanın tamamını ekran goruntusu al
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(dosyaYolu2)));
@@ -25,6 +28,10 @@ public class P18_ScreenShot extends BaseTest {
 
         Locator logo = page.locator("img[alt='Logo']");//LOGONUN FOTOGRAFINI AL
         //logo.screenshot(new Locator.ScreenshotOptions().setPath(Paths.get(dosyaYolu3)));
+
+        BrowserContext context = browser.newContext(new Browser.NewContextOptions()  //video kaydı için
+                .setRecordVideoDir(Paths.get(dosyaYolu4))
+                .setRecordVideoSize(640, 480));
 
 
 
